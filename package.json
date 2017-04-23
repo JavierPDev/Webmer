@@ -1,0 +1,34 @@
+{
+  "name": "webmer",
+  "version": "0.0.0",
+  "description": "Turn input into easily shareable webm",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo test",
+    "build": "nexe -f -i ./index.js -o ./webmer",
+    "install:executable:linux": "npm run build && sudo cp ./webmer /usr/bin"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JavierPDev/Webmer.git"
+  },
+  "homepage": "https://github.com/JavierPDev/Webmer#readme",
+  "author": "Javier <javier@javierdev.com>",
+  "bugs": {
+    "url": "https://github.com/JavierPDev/Webmer/issues"
+  },
+  "keywords": [
+    "ffmpeg",
+    "webm",
+    "node",
+    "commandline"
+  ],
+  "dependencies": {
+    "commander": "^2.9.0",
+    "expand-tilde": "^2.0.2",
+    "fluent-ffmpeg": "^2.1.0",
+    "inquirer": "^3.0.6",
+    "nexe": "^1.1.2"
+  }
+}
