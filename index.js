@@ -12,7 +12,7 @@ async function main() {
   const commanderOptions = {};
 
   program
-    .version('0.1.0')
+    .version('0.1.1')
     .option('-i, --input <input>', 'Input location')
     .option('-o, --output <output>', 'Output location')
     .option('-w, --width [width]', 'Maximum width')
@@ -88,7 +88,6 @@ async function main() {
   const options = Object.assign({}, answerOptions, commanderOptions);
 
   let ffmpeg = require('fluent-ffmpeg')(options.input);
-  ffmpeg = ffmpeg.noAudio();
 
   if (options.start)
     ffmpeg = ffmpeg.seekInput(options.start);
@@ -101,10 +100,12 @@ async function main() {
 
   ffmpeg
     .videoCodec('libvpx')
+    .noAudio()
     .format('webm')
     .on('error', error => console.log('An error occurred:', error))
     .on('progress', progress => {
-      console.log('Timemark: ', progress.timemark, 'of', options.duration);
+      const durationStr = options.duration ? 'of ' + options.duration : '';
+      console.log('Timemark: ', progress.timemark, durationStr);
     })
     .on('end', () => {
       const msg = options.output + ' finished with filesize '
