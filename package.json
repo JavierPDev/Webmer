@@ -1,12 +1,12 @@
 {
   "name": "webmer",
   "version": "0.1.0",
-  "description": "Turn input into easily shareable webm",
+  "description": "Turn gif or video files into easily shareable webm videos",
   "main": "index.js",
   "scripts": {
     "test": "echo test",
-    "build": "nexe -f -i ./index.js -o ./webmer",
-    "install:executable:linux": "npm run build && sudo cp ./webmer /usr/bin"
+    "build": "pkg index.js --out-dir dist",
+    "install:linux": "npm run build && sudo cp ./dist/index-linux /usr/bin/webmer"
   },
   "license": "MIT",
   "repository": {
@@ -29,6 +29,6 @@
     "expand-tilde": "^2.0.2",
     "fluent-ffmpeg": "^2.1.0",
     "inquirer": "^3.0.6",
-    "nexe": "^1.1.2"
+    "pkg": "^3.0.2"
   }
 }
