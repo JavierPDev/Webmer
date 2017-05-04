@@ -1,6 +1,6 @@
 {
   "name": "webmer",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Turn gif or video files into easily shareable webm videos",
   "main": "index.js",
   "scripts": {
